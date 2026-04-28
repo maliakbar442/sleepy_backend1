@@ -1,0 +1,15 @@
+numpy
+joblib
+fastapi
+sqlalchemy
+python-jose
+pydantic
+flask
+scikit-learn
+dotenv
+python-dotenv
+passlib
+cryptography
+xgboost
+pymysql
+bcrypt==4.3.0
