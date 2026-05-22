@@ -13,3 +13,5 @@ cryptography
 xgboost
 pymysql
 bcrypt==4.3.0
+pydantic[email]
+joblib
