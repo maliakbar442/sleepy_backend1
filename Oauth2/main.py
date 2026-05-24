@@ -28,21 +28,24 @@ from models import User
 import urllib.parse
 
 
-ml_base_dir='/backend_sleepy/ml_model'
-model_path = os.path.join(os.getcwd(), 'ml_model', 'xgb_model_Test.pkl')
+# ml_base_dir='/sleepy_backend1/ml_model'
+base_path = '/sleepy_backend1'
+model_path = os.path.join(base_path, 'ml_model', 'xgb_model_Test.pkl')
 model = joblib.load(model_path)
-gender_path = os.path.join(os.getcwd(), 'ml_model', 'Gender_label_encoder.pkl')
+gender_path = os.path.join(base_path, 'ml_model', 'Gender_label_encoder.pkl')
 gender_encoder = joblib.load(gender_path)
-occupation_encoder_path = os.path.join(os.getcwd(), 'ml_model', 'Occupation_label_encoder.pkl')
+occupation_encoder_path = os.path.join(base_path(), 'ml_model', 'Occupation_label_encoder.pkl')
 occupation_encoder = joblib.load(occupation_encoder_path)
-bmi_encoder_path = os.path.join(os.getcwd(), 'ml_model', 'BMI Category_label_encoder.pkl')
+bmi_encoder_path = os.path.join(base_path, 'ml_model', 'BMI Category_label_encoder.pkl')
 bmi_encoder = joblib.load(bmi_encoder_path)
-scaler_path = os.path.join(os.getcwd(), 'ml_model', 'minmax_scaler_split.pkl')
+scaler_path = os.path.join(base_path, 'ml_model', 'minmax_scaler_split.pkl')
 scaler = joblib.load(scaler_path)
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+# Use the gunicorn error logger for your app logs
+logger = logging.getLogger("gunicorn.error")
 
 # Database initialization
 models.Base.metadata.create_all(bind=database.engine)

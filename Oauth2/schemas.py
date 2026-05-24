@@ -83,4 +83,4 @@ class SleepDataResponse(BaseModel):
     wake_time: str
 
     class Config:
-        orm_mode = True
+        from_attributtes = True
